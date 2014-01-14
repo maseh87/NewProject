@@ -2,9 +2,9 @@
   <div class='row'>
     <div class='col-xs-8'>
       <form class='form-group' ng-submit='addToDo(todo)'>
-        <input type='text' class='form-control' ng-model='todo' placeholder='Add Your To Do Here' ng-required='true' >
+        <input type='text' class='form-control' ng-model='todo' placeholder='Add Your To Do Here' ng-required='true' ><button class='btn btn-lg btn-success' type='submit'>Add</button>
         <input ui-date ui-date-format='MM d, yy DD' ng-model='myDate' placeholder='Pick a Date' ng-required='true'>
-        <button class='btn btn-lg btn-success' type='submit'>Add</button>
+
     </form>
     <div class='well' style="margin-top: 30px; width: 300px; overflow: hidden;">
       <form class='form-search'>
