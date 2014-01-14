@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var db = mongoose.createConnection('localhost', 'test');
 var express = require('express');
 var app = express();
 var db = mongoose.connect('mongodb://localhost/calendar');
@@ -9,7 +10,6 @@ app.get('*', function(req, res) {
 })
 
 
-
-
 app.listen(3000);
 console.log('port is listening 3k');
+
