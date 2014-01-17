@@ -1,6 +1,6 @@
 <ul class='nav nav-pills'>
-  <li class='active'><a href="#">Home</a></li>
-  <li><a href="#/calendar">Calendar</a></li>
+  <li><a href="#">Home</a></li>
+  <li class='active'><a href="#/calendar">Calendar</a></li>
 </ul>
 
 
@@ -15,7 +15,7 @@
       </form>
     <div class='well' style="margin-top: 30px; width: 300px; overflow: hidden;">
       <form class='form-search'>
-        <input type'text' ng-model='search' class='search-query' style='width: 200px'>
+        <input type='text' ng-model='search' class='search-query' style='width: 200px'>
         <ul>
           <li class='slide-top' ng-repeat='todo in todos | filter:search'>
             <a href='#/calendar'>{{todo.todo}} {{todo.date}}</a>
