@@ -16,10 +16,8 @@
     <div class='well' style="margin-top: 30px; width: 300px; overflow: hidden;">
       <form class='form-search'>
         <input type='text' ng-model='search' class='search-query' style='width: 200px'>
-        <ul>
-          <li class='slide-top' ng-repeat='todo in todos | filter:search'>
-            <a href='#/calendar'>{{todo.todo}} {{todo.date}}</a>
-          </li>
+        <ul ng-repeat='each in todos | filter: search'>
+          <li>{{each.name}} {{each.dueDay}}</li>
         </ul>
     </div>
     </div>

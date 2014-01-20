@@ -8,7 +8,6 @@ app.use(express.static(__dirname + '/app'));
 app.use(express.bodyParser());
 
 app.post('/todos/post', function(req, res) {
-  console.log('req.body', req.body);
   var todo = req.body;
   var newtodo = new Todo();
   newtodo.name = todo.todo;
@@ -18,16 +17,36 @@ app.post('/todos/post', function(req, res) {
       console.log('error', error);
       res.send(400);
     }
-    res.send(201);
+  });
+  Todo.find({}, {name: true, dueDay: true}, function(error, todos) {
+    if(error) {
+      console.log('Error', error);
+      res.send(400);
+    }
+    if(todos) {
+      console.log('got todos');
+      res.json(todos);
+    }
   });
 });
+
+app.get('/todos/get', function(req, res) {
+  Todo.find({}, {name: true, dueDay: true}, function(error, todos) {
+    if(error) {
+      console.log('Error', error);
+      res.send(400);
+    }
+    if(todos) {
+      console.log('got todos');
+      res.json(todos);
+    }
+  });
+});
+
 
 app.get('*', function(req, res) {
   res.sendfile('app/index.html');
 });
-
-
-
 
 
 app.listen(3000);
