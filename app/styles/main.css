@@ -78,5 +78,7 @@ body {
     border-bottom: 0;
   }
 }
-
+ul {
+  list-style: none;
+}
 

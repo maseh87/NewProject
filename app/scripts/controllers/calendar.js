@@ -3,13 +3,12 @@
 angular.module('newCalendarApp')
   .controller('CalendarCtrl', function($scope, $http) {
     $scope.template = 'calendar';
-    $scope.myDate = '';
     $scope.todos;
     $scope.addToDo = function(todo) {
       $http({
         url: '/todos/post',
         method: 'POST',
-        data: {'todo': $scope.todo, 'date': $scope.myDate}
+        data: {'todo': $scope.todo, 'date': $scope.myDate, 'completed': $scope.completed}
       }).
       success(function(data) {
         console.log('post success', data);
@@ -21,6 +20,7 @@ angular.module('newCalendarApp')
       });
       $scope.todo = '';
       $scope.myDate = '';
+      $scope.completed;
     };
 
     $http({

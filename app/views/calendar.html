@@ -11,12 +11,16 @@
       <form class='form-group' ng-submit='addToDo(todo)'>
         <input ui-date ui-date-format='MM d, yy DD' ng-model='myDate' placeholder='Pick a Date' ng-required='true'>
         <input type='text' class='form-control' ng-model='todo' placeholder='Add Your To Do Here' ng-required='true' >
-        <button class='btn btn-lg btn-success' type='submit'>Add</button>
+
+        <button class='btn btn-success' type='submit'>Add</button>
+
       </form>
+
     <div class='well' style="margin-top: 30px; width: 300px; overflow: hidden;">
       <form class='form-search'>
-        <input type='text' ng-model='search' class='search-query' style='width: 200px'>
+        <input type='text' ng-model='search' class='search-query' style='width: 200px' placeholder='Search'>
         <ul ng-repeat='each in todos | filter: search'>
+          <input type='checkbox'>
           <li>{{each.name}} {{each.dueDay}}</li>
         </ul>
     </div>

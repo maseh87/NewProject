@@ -8,17 +8,19 @@ app.use(express.static(__dirname + '/app'));
 app.use(express.bodyParser());
 
 app.post('/todos/post', function(req, res) {
+  console.log(req.body);
   var todo = req.body;
   var newtodo = new Todo();
   newtodo.name = todo.todo;
   newtodo.dueDay = todo.date;
+  newtodo.completed = todo.completed;
   newtodo.save(function(error) {
     if(error) {
       console.log('error', error);
       res.send(400);
     }
   });
-  Todo.find({}, {name: true, dueDay: true}, function(error, todos) {
+  Todo.find({}, {name: true, dueDay: true, completed: true}, function(error, todos) {
     if(error) {
       console.log('Error', error);
       res.send(400);
@@ -31,7 +33,7 @@ app.post('/todos/post', function(req, res) {
 });
 
 app.get('/todos/get', function(req, res) {
-  Todo.find({}, {name: true, dueDay: true}, function(error, todos) {
+  Todo.find({}, {name: true, dueDay: true, completed: true}, function(error, todos) {
     if(error) {
       console.log('Error', error);
       res.send(400);
